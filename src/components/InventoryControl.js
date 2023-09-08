@@ -106,6 +106,22 @@ class InventoryControl extends React.Component {
         });
     }
 
+    handleSellClick = (id) => {
+        const targetCoffee = this.state.coffeeList.filter(coffee => coffee.id === id)[0];
+        const soldCoffee = {
+            name: targetCoffee.name,
+            origin: targetCoffee.origin,
+            roast: targetCoffee.origin,
+            cost: targetCoffee.cost,
+            inventory: targetCoffee.inventory -1,
+            id: targetCoffee.id};
+        const newInventoryList = this.state.coffeeList
+            .filter(coffee => coffee.id !== id)
+            .concat(soldCoffee);
+        this.setState({ coffeeList: newInventoryList});
+    }
+
+
     render(){
         let currentlyVisiblePage = null;
         let buttonText = null;
@@ -128,7 +144,8 @@ class InventoryControl extends React.Component {
             <div className="container main">
                 <h2>Coffee Menu</h2>
                 < CoffeeMenu coffeeList = {this.state.coffeeList}
-                            onCoffeeSelect = {this.handleChangingSelectedCoffee}/>
+                            onCoffeeSelect = {this.handleChangingSelectedCoffee}
+                            onCoffeeSell = {this.handleSellClick}/>
             </div>;
             buttonText = "Add New Menu Item";
         }
