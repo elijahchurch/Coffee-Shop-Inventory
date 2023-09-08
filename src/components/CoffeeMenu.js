@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 function CoffeeMenu(props){
     return(
         <React.Fragment>
-            {props.coffeeList.map((coffee) =>
+            {props.coffeeList.sort((coffeeA, coffeeB) => coffeeA.name > coffeeB.name ? 1 : -1).map((coffee) =>
                 <Coffee
                     coffeeSelect = {props.onCoffeeSelect}
                     coffeeSell = {props.onCoffeeSell}
