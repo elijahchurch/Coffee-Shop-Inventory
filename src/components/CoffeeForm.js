@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function CoffeeForm(props) {
     return(
-        <div className="container">
+        <div className="container main">
             <form onSubmit={props.formSubmissionHandler}>
                 <input 
                     className="input"
@@ -23,7 +23,7 @@ function CoffeeForm(props) {
                     <option value="Medium">Medium</option>
                     <option value="Dark">Dark</option>
                 </select>
-                <label for="cost">Set Cost:</label>
+                <label for="cost">Cost:</label>
                 <input
                     className="input"
                     id="cost"

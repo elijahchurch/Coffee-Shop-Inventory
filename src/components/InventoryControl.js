@@ -1,12 +1,14 @@
 import React from "react";
 import CoffeeMenu from "./CoffeeMenu";
 import CreateCoffee from "./CreateCoffee";
+import CoffeeDetails from "./CoffeeDetails";
 
 class InventoryControl extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             createFormPage: false,
+            selectedCoffee: null,
             coffeeList: [
                 {
                     name: "Arabica",
@@ -54,15 +56,27 @@ class InventoryControl extends React.Component {
     }
 
     handleClick = () => {
+        if (this.state.selectedCoffee != null) {
+            this.setState({
+                createFormPage: false,
+                selectedCoffee: null
+            });
+        } else {
         this.setState(prevState => ({
             createFormPage: !prevState.createFormPage
-        }));
+            }));
+        }
     }
 
     handleAddingNewCoffeeItem = (newCoffee) => {
         const newCoffeeList = this.state.coffeeList.concat(newCoffee);
         this.setState({ coffeeList: newCoffeeList,
                         createFormPage: false});
+    }
+
+    handleChangingSelectedCoffee = (id) => {
+        const selectedCoffee = this.state.coffeeList.filter(coffee => coffee.id === id)[0];
+        this.setState({selectedCoffee: selectedCoffee});
     }
 
 
@@ -72,12 +86,19 @@ class InventoryControl extends React.Component {
         if (this.state.createFormPage) {
             currentlyVisiblePage = <CreateCoffee onCoffeeCreation = {this.handleAddingNewCoffeeItem} />;
             buttonText = "Return to Coffee Menu";
-        } else {currentlyVisiblePage = 
-            <div className="container" id="menu">
+        } 
+        else if (this.state.selectedCoffee != null) {
+            currentlyVisiblePage = <CoffeeDetails coffee = {this.state.selectedCoffee}/>;
+            buttonText = "Return to Coffee Menu";
+        }
+        
+        else {currentlyVisiblePage = 
+            <div className="container main">
                 <h2>Coffee Menu</h2>
-                < CoffeeMenu coffeeList = {this.state.coffeeList}/>
+                < CoffeeMenu coffeeList = {this.state.coffeeList}
+                            onCoffeeSelect = {this.handleChangingSelectedCoffee}/>
             </div>;
-            buttonText = "Add New Menu Item"
+            buttonText = "Add New Menu Item";
         }
         return(
             <React.Fragment>

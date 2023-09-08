@@ -7,6 +7,7 @@ function Coffee(props){
             <hr/>
             <p>Cost: ${props.cost}</p>
             <p>Inventory: {props.inventory} lbs.</p>
+            <button onClick={() => props.coffeeSelect(props.id)}>Details</button>
         </div>
     )
 }
@@ -17,7 +18,8 @@ Coffee.propTypes ={
     roast: PropTypes.string,
     cost: PropTypes.number,
     inventory: PropTypes.string,
-    id: PropTypes.string
+    id: PropTypes.string,
+    coffeeSelect: PropTypes.func
 }
 
 export default Coffee;

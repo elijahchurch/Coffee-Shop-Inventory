@@ -7,6 +7,7 @@ function CoffeeMenu(props){
         <React.Fragment>
             {props.coffeeList.map((coffee) =>
                 <Coffee
+                    coffeeSelect = {props.onCoffeeSelect}
                     name={coffee.name}
                     origin={coffee.name}
                     roast={coffee.roast}
@@ -20,7 +21,8 @@ function CoffeeMenu(props){
 }
 
 CoffeeMenu.PropTypes={
-    coffeeList: PropTypes.array
+    coffeeList: PropTypes.array,
+    onCoffeeSelect: PropTypes.func
 }
 
 export default CoffeeMenu;
