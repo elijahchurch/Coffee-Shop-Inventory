@@ -11,6 +11,7 @@ function CoffeeDetails(props){
         <p>Roast: {coffee.roast}</p>
         <p>Price: ${coffee.cost}</p>
         <p>Amount of Inventory Left: {coffee.inventory}lbs.</p>
+        <hr/>
         <button onClick = {onClickingEdit}>Update</button>
         <button onClick = {()=> onClickingDelete(coffee.id)}>Remove from Menu</button>
     </div>

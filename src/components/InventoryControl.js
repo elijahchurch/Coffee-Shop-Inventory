@@ -91,10 +91,20 @@ class InventoryControl extends React.Component {
         });
     }
 
-    handleEditCoffee = () => {
+    handleEditClick = () => {
         this.setState({edit: true});
     }
 
+    handleEditCoffeeForm = (editedCoffee) => {
+        const editedCoffeeList = this.state.coffeeList
+            .filter(coffee => coffee.id !== this.state.selectedCoffee.id)
+            .concat(editedCoffee)
+        this.setState({
+            coffeeList: editedCoffeeList,
+            edit: false,
+            selectedCoffee: null
+        });
+    }
 
     render(){
         let currentlyVisiblePage = null;
@@ -104,13 +114,14 @@ class InventoryControl extends React.Component {
             buttonText = "Return to Coffee Menu";
         } 
         else if(this.state.edit) {
-            currentlyVisiblePage = <EditCoffee coffee = {this.state.selectedCoffee}/>;
+            currentlyVisiblePage = <EditCoffee coffee = {this.state.selectedCoffee}
+                                                onEditCoffee = {this.handleEditCoffeeForm}/>;
             buttonText = "Return to Coffee Menu";
         }  
         else if (this.state.selectedCoffee != null) {
             currentlyVisiblePage = <CoffeeDetails coffee = {this.state.selectedCoffee} 
                                                 onClickingDelete = {this.handleDeletingCoffeeItem}
-                                                onClickingEdit = {this.handleEditCoffee}/>;
+                                                onClickingEdit = {this.handleEditClick}/>;
             buttonText = "Return to Coffee Menu";
         }      
         else {currentlyVisiblePage = 
