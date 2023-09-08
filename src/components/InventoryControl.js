@@ -55,9 +55,11 @@ class InventoryControl extends React.Component{
     render(){
         return(
             <React.Fragment>
-                <h2>Coffee Menu</h2>
-                <hr/>
-                <CoffeeMenu coffeeList = {this.state.coffeeList}/>
+                <div className="container" id="menu">
+                    <h2>Coffee Menu</h2>
+                    <CoffeeMenu coffeeList = {this.state.coffeeList}/>
+                    <button>Add menu item</button>
+                </div>
             </React.Fragment>
         );
     }

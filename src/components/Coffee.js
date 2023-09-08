@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 
 function Coffee(props){
     return(
-        <div>
+        <div className="container menuItem">
             <h3>{props.name}</h3>
+            <hr/>
             <p>Cost: ${props.cost}</p>
             <p>Inventory: {props.inventory} lbs.</p>
         </div>
