@@ -71,12 +71,21 @@ class InventoryControl extends React.Component {
     handleAddingNewCoffeeItem = (newCoffee) => {
         const newCoffeeList = this.state.coffeeList.concat(newCoffee);
         this.setState({ coffeeList: newCoffeeList,
-                        createFormPage: false});
+                        createFormPage: false
+            });
     }
 
     handleChangingSelectedCoffee = (id) => {
         const selectedCoffee = this.state.coffeeList.filter(coffee => coffee.id === id)[0];
         this.setState({selectedCoffee: selectedCoffee});
+    }
+
+    handleDeletingCoffeeItem = (id) => {
+        const newCoffeeList = this.state.coffeeList.filter(coffee => coffee.id !== id);
+        this.setState({
+            coffeeList: newCoffeeList,
+            selectedCoffee: null
+        });
     }
 
 
@@ -88,7 +97,7 @@ class InventoryControl extends React.Component {
             buttonText = "Return to Coffee Menu";
         } 
         else if (this.state.selectedCoffee != null) {
-            currentlyVisiblePage = <CoffeeDetails coffee = {this.state.selectedCoffee}/>;
+            currentlyVisiblePage = <CoffeeDetails coffee = {this.state.selectedCoffee} onClickingDelete = {this.handleDeletingCoffeeItem}/>;
             buttonText = "Return to Coffee Menu";
         }
         
