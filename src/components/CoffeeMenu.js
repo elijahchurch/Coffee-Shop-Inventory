@@ -8,6 +8,7 @@ function CoffeeMenu(props){
             {props.coffeeList.map((coffee) =>
                 <Coffee
                     coffeeSelect = {props.onCoffeeSelect}
+                    coffeeSell = {props.onCoffeeSell}
                     name={coffee.name}
                     origin={coffee.name}
                     roast={coffee.roast}
@@ -20,9 +21,10 @@ function CoffeeMenu(props){
     );
 }
 
-CoffeeMenu.PropTypes={
+CoffeeMenu.propTypes={
     coffeeList: PropTypes.array,
-    onCoffeeSelect: PropTypes.func
+    onCoffeeSelect: PropTypes.func,
+    onCoffeeSell: PropTypes.func
 }
 
 export default CoffeeMenu;
