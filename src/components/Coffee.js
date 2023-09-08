@@ -5,7 +5,7 @@ function Coffee(props){
         <div className="container menuItem">
             <h3>{props.name}</h3>
             <hr/>
-            <p>Cost: ${props.cost}</p>
+            <p>Price: ${props.cost}</p>
             <p>Inventory: {props.inventory} lbs.</p>
             <button onClick={() => props.coffeeSelect(props.id)}>Details</button>
         </div>

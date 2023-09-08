@@ -23,7 +23,7 @@ function CoffeeForm(props) {
                     <option value="Medium">Medium</option>
                     <option value="Dark">Dark</option>
                 </select>
-                <label for="cost">Cost:</label>
+                <label for="cost">Price:</label>
                 <input
                     className="input"
                     id="cost"

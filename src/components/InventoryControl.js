@@ -2,6 +2,7 @@ import React from "react";
 import CoffeeMenu from "./CoffeeMenu";
 import CreateCoffee from "./CreateCoffee";
 import CoffeeDetails from "./CoffeeDetails";
+import EditCoffee from "./EditCoffee";
 
 class InventoryControl extends React.Component {
     constructor(props){
@@ -9,6 +10,7 @@ class InventoryControl extends React.Component {
         this.state = {
             createFormPage: false,
             selectedCoffee: null,
+            edit: false,
             coffeeList: [
                 {
                     name: "Arabica",
@@ -59,7 +61,8 @@ class InventoryControl extends React.Component {
         if (this.state.selectedCoffee != null) {
             this.setState({
                 createFormPage: false,
-                selectedCoffee: null
+                selectedCoffee: null,
+                edit: false
             });
         } else {
         this.setState(prevState => ({
@@ -88,6 +91,10 @@ class InventoryControl extends React.Component {
         });
     }
 
+    handleEditCoffee = () => {
+        this.setState({edit: true});
+    }
+
 
     render(){
         let currentlyVisiblePage = null;
@@ -96,11 +103,16 @@ class InventoryControl extends React.Component {
             currentlyVisiblePage = <CreateCoffee onCoffeeCreation = {this.handleAddingNewCoffeeItem} />;
             buttonText = "Return to Coffee Menu";
         } 
-        else if (this.state.selectedCoffee != null) {
-            currentlyVisiblePage = <CoffeeDetails coffee = {this.state.selectedCoffee} onClickingDelete = {this.handleDeletingCoffeeItem}/>;
+        else if(this.state.edit) {
+            currentlyVisiblePage = <EditCoffee coffee = {this.state.selectedCoffee}/>;
             buttonText = "Return to Coffee Menu";
-        }
-        
+        }  
+        else if (this.state.selectedCoffee != null) {
+            currentlyVisiblePage = <CoffeeDetails coffee = {this.state.selectedCoffee} 
+                                                onClickingDelete = {this.handleDeletingCoffeeItem}
+                                                onClickingEdit = {this.handleEditCoffee}/>;
+            buttonText = "Return to Coffee Menu";
+        }      
         else {currentlyVisiblePage = 
             <div className="container main">
                 <h2>Coffee Menu</h2>
