@@ -6,22 +6,28 @@ function CoffeeForm(props) {
         <div className="container">
             <form onSubmit={props.formSubmissionHandler}>
                 <input 
+                    className="input"
                     type="text"
                     name="name"
                     placeholder="Coffee Name" 
                     required />
                 <input 
+                    className="input"
                     type="text"
                     name="origin"
                     placeholder="Country Exported From"
                     required />
                 <label for="roast">Roast:</label>
-                <select name="roast" required>
+                <select className="input" id="roast" name="roast" required>
                     <option value="Light">Light</option>
                     <option value="Medium">Medium</option>
                     <option value="Dark">Dark</option>
                 </select>
-                <input 
+                <label for="cost">Set Cost:</label>
+                <input
+                    className="input"
+                    id="cost"
+                    name="cost"
                     type="number"
                     min="0"
                     step="1"
