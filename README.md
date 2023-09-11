@@ -11,16 +11,21 @@
 * JavaScript
 * CSS
 * HTML
+* JSX
 
 ## Description:
 
-
+This is a diagram of the components used in this application:
 ![component diagram](./src/img/Component-Diagram.png)
 
+This application lists the current coffee menu and inventory with a pre-built state of coffee objects in an array. The viewer is directed to this coffee menu, with the CoffeeMenu component automatically rendering upon start, and from there can either add another coffee inventory item to the menu or either view details or "sell" inventory (by reducing inventory by 1 lb) from a specific coffee inventory item. Switching between components is handled by local state and toggling its various properties from false, true, or to a specific selected coffee item. 
 
 ## Setup/ Installation Requirements
 
-1. Clone this repo.
+1. Clone this repository to your desktop.
+2. In the topmost directory of the project, open up all of the code using Visual Code Studio or a similar application to view the written code.
+3. If you have Node Package Manager installed on your computer and are running v16.13.1, you can enter npm install in the topmost directory of the project to install all the listed plug-ins in the package.json.
+4. From there the webpage itself can be viewed by entering npm start in your console to open up a local live server.
 
 ## Known Bugs
 Currently no known bugs. 
