@@ -1,7 +1,11 @@
 body {
   text-align: center;
   font-size: large;
-  background-color: #c7b198;
+  background-image: url("../src/img/coffee-background.png");
+  background-repeat: no-repeat;
+  background-size:  cover;
+  background-attachment: fixed;
+  font-family:  Helvetica;
 }
 
 .container {
@@ -14,6 +18,9 @@ body {
   margin-top: 10px;
 }
 
+h1 {
+  font-family: 'Lucida Sans';
+}
 
 .menuItem {
   width: 80%;
@@ -42,6 +49,10 @@ button{
 
 .alert {
   color: red;
+}
+
+hr {
+  border: 1px solid #0f3e57;
 }
 
 

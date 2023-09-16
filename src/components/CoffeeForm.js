@@ -17,7 +17,7 @@ function CoffeeForm(props) {
                     name="origin"
                     placeholder="Country Exported From"
                     required />
-                <label for="roast">Roast:</label>
+                <label htmlFor="roast">Roast:</label>
                 <select className="input" id="roast" name="roast" required>
                     <option value="Light">Light</option>
                     <option value="Medium">Medium</option>
