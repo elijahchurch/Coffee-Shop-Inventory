@@ -23,7 +23,7 @@ function CoffeeForm(props) {
                     <option value="Medium">Medium</option>
                     <option value="Dark">Dark</option>
                 </select>
-                <label for="cost">Price:</label>
+                <label htmlFor="cost">Price:</label>
                 <input
                     className="input"
                     id="cost"
@@ -38,7 +38,7 @@ function CoffeeForm(props) {
     );
 }
 
-CoffeeForm.PropTypes ={
+CoffeeForm.propTypes ={
     formSubmissionHandler: PropTypes.func,
     buttonText: PropTypes.string
 }

@@ -23,8 +23,8 @@ function EditCoffee(props) {
     );
 }
 
-EditCoffee.PropTypes = {
-    coffee: PropTypes.coffee,
+EditCoffee.propTypes = {
+    coffee: PropTypes.object,
     onEditCoffee: PropTypes.func
 }
 
