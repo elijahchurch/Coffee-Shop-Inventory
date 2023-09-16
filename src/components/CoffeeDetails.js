@@ -5,7 +5,7 @@ function CoffeeDetails(props){
     const {coffee, onClickingDelete, onClickingEdit} = props;
     let inventory = null;
     if(coffee.inventory === 0) {
-        inventory = "Out of Stock!";
+        inventory = <span className="alert">"Out of Stock!"</span>;
     } else {
         inventory = `${coffee.inventory} lbs.`
     }

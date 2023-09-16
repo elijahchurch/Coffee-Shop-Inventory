@@ -4,11 +4,11 @@ function Coffee(props){
     let inventory = null;
     let sellButton = null;
     if(props.inventory === 0) {
-        inventory = "Out of Stock!";
+        inventory = <span className="alert">"Out of Stock!"</span>;
         sellButton = null;
     } else {
         inventory = `${props.inventory} lbs.`;
-        sellButton = <button onClick={() => props.coffeeSell(props.id)}>Sell 1 pound of Inventory</button>;
+        sellButton = <button onClick={() => props.coffeeSell(props.id)}>Sell Inventory</button>;
     }
     return(
         <div className="container menuItem">
