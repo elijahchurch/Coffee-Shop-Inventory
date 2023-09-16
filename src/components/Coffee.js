@@ -2,13 +2,16 @@ import PropTypes from "prop-types";
 
 function Coffee(props){
     let inventory = null;
-    let sellButton = null;
+    let sellButton = <button onClick={() => props.coffeeSell(props.id)}>Sell Inventory</button>;
     if(props.inventory === 0) {
         inventory = <span className="alert">"Out of Stock!"</span>;
         sellButton = null;
-    } else {
+    } 
+    else if (props.inventory <= 10) {
+        inventory = `${props.inventory} lbs - Almost Empty!`
+    }  
+    else {
         inventory = `${props.inventory} lbs.`;
-        sellButton = <button onClick={() => props.coffeeSell(props.id)}>Sell Inventory</button>;
     }
     return(
         <div className="container menuItem">

@@ -6,7 +6,11 @@ function CoffeeDetails(props){
     let inventory = null;
     if(coffee.inventory === 0) {
         inventory = <span className="alert">"Out of Stock!"</span>;
-    } else {
+    }
+    else if (coffee.inventory <= 10) {
+        inventory = `${coffee.inventory} lbs - Almost Empty!`
+    }     
+    else {
         inventory = `${coffee.inventory} lbs.`
     }
     
